@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hx76.mapper.BooksMapper">
+    <insert id="add" parameterType="com.hx76.pojo.Books">
+        insert into ssmbuild.books (bookName, number, comment)
+        values (#{bookName},#{number},#{comment});
+    </insert>
+
+    <delete id="deleteByID" parameterType="com.hx76.pojo.Books">
+        delete from ssmbuild.books where bookID = #{ID}
+    </delete>
+
+    <update id="update" parameterType="com.hx76.pojo.Books">
+        update ssmbuild.books set bookName=#{bookName},number=#{number},comment=#{comment}
+        where bookID=#{bookID}
+    </update>
+
+    <select id="findByName" resultType="com.hx76.pojo.Books">
+        select * from ssmbuild.books
+        where bookName=#{bookName}
+    </select>
+    <select id="findAllBooks" resultType="com.hx76.pojo.Books">
+        select * from ssmbuild.books
+    </select>
+
+
+</mapper>
